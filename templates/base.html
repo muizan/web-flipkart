@@ -1,38 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <link rel='stylesheet' href="/static/style.css">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  <head>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/stylenav.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
     <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	     <span class="navbar-toggler-icon"></span>
-	 </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
-             <ul class="navbar-nav">
-	         <li class="nav-item active">
-                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-		    <a class="nav-link" id="abhi" href="#">Features</a>
-		</li>
-		<li class="nav-item">
-		    <a class="nav-link" style="color:aqua" href="#">Pricing</a>
-		</li>
-		<li class="nav-item">
-		    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-		</li>
-	    </ul>
+  </head>
+  <body>
+    <!-- navBar -->
+    <div class="navbar">
+      <div class="nav__left">
+        <div class="nav__logo">
+          <img
+            src="{{url_for('static',filename='symbol.png')}}"
+            style="width: 55px"
+          />
+          <span class="nav__logo__item"> HORUS</span>
         </div>
-    </nav>  -->
-    {% block content %}
-    {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-</body>
+        <div class="nav__items" id="nav__items__toggle">
+          <ul>
+            <li>
+              <a href="#tutorial">
+                <!-- <i class="fa fa-fw fa-home"></i>-->
+                Tutorial</a
+              >
+            </li>
+            <li>
+              <a href="#registration__form" onclick="regScale()"
+                >Registration</a
+              >
+            </li>
+            <li>
+              <a href="#about"><i class="fa fa-fw fa-user"></i> About</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-fw fa-envelope"></i>Profile </a>
+            </li>
+            <li class="fullFunctional">
+              <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav__item__right">
+        <div id="menu" class="menuIcon" onclick=" fnclick()">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+        </div>
 
+        <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+
+    <!--....................................... main content  .........................................-->
+    <div class="main">
+      <div class="main__left__content">
+        <p class="main__left__item">Get Notefied.</p>
+        <h1 class="main__left__item">Never miss out!</h1>
+        <p class="main__left__item">
+          Horus sends notifications whenever a registered product goes below
+          user's desired price.
+        </p>
+        <button class="button12" onclick="regFormcall()">
+          <a href="#registration__form">Register</a>
+        </button>
+      </div>
+      <!-- ................................................right content................................... -->
+      <div class="main__right__content">
+        <div class="main__right__content__items">
+          <img
+            class="logo__image"
+            src="{{url_for('static',filename='robot.png')}}"
+          />
+          <!--................................. Registration form  .............................................-->
+          <div class="center" id="registration__form">
+            <div class="login-div">
+              <!-- regTitle -->
+              <div class="reg__logo">
+                <img
+                  id="Reg_Image"
+                  src="{{url_for('static',filename='symbol.png')}}"
+                  alt=""
+                />
+                <div>Horus</div>
+              </div>
+              <!-- regTitle End -->
+
+              <div class="fields">
+                <form action="#" method="post">
+                  <div class="username">
+                    <input
+                      type="link"
+                      class="user-input"
+                      placeholder="Product link"
+                      name="prod"
+                      required
+                    />
+                  </div>
+                  <div class="password">
+                    <input
+                      type="number"
+                      class="pass-input"
+                      placeholder="Alert when price is less than: ₹ "
+                      name="num"
+                      required
+                    />
+                  </div>
+                  <div class="username">
+                    <input
+                      type="email"
+                      class="user-input"
+                      placeholder="Enter your Email ID to sync your alerts:"
+                      name="nm"
+                      required
+                    />
+                  </div>
+                  <div class="Submit-button_container">
+                    <button class="Submit-button">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--................................ Registration form end....................................... -->
+        </div>
+      </div>
+      <!-- ..................................right content end here ...................................... -->
+    </div>
+    <!--..................................... main content end here ...................................... -->
+    <!-- ....................................how to use section ...........................................-->
+    <div class="slideshow__main">
+      <div class="slideshow-container" id="tutorial">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img
+            src="{{url_for('static',filename='car1.png')}}"
+            style="width: 100%"
+          />
+          <div class="text">goto Flipkart.com</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img
+            src="{{url_for('static',filename='car2.png')}}"
+            style="width: 100%"
+          />
+          <div class="text">select any product</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img
+            src="{{url_for('static',filename='car3.png')}}"
+            style="width: 100%"
+          />
+          <div class="text">Copy the address bar address.</div>
+        </div>
+
+        <!-- <div class="mySlides fade">
+        <div class="numbertext">4 / 5</div>
+        <img
+       
+          style="width: 100%"
+        />
+        <div class="text">Caption Three</div>
+      </div> -->
+
+        <!-- <div class="mySlides fade">
+        <div class="numbertext">5 / 5</div>
+        <img
+          src="../static/photo-1660227165166-3c6b07a3fd3a.avif"
+          style="width: 100%"
+        />
+        <div class="text">Caption Three</div>
+      </div> -->
+      </div>
+      <br />
+      <div style="text-align: center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <!-- <span class="dot"></span>
+      <span class="dot"></span> -->
+      </div>
+    </div>
+    <!-- how to use section end here -->
+
+    <!-- .............................About......................................... -->
+    <div class="about__main" id="about">
+      <div class="about__main__items">
+        <div class="about">
+          <h2>About us</h2>
+          <h4>
+            Horus is flask app in which you can register any product and it will
+            notify whenever this product fall below a a certain price .
+          </h4>
+        </div>
+
+        <div class="question">
+          <h3>why we made Horus?</h3>
+          <p>
+            sometimes we want to buy a product but its current price is too high
+            so we add the product to our cart and keep on checking for its price
+            to go down but it is a quite tiring process so Horus will automate
+            this process and check the price of products at a certain interval
+            of time.
+          </p>
+        </div>
+        <div class="question">
+          <h3>what made Horus different?</h3>
+          <p>
+            There are a lot of website that do the same thing what make Horus
+            different is that it does not moniter our browser or keep track of
+            our shopping history.If we want Horus to keep track of some product
+            you can just go to the website and register your product it will not
+            moniter your browser.
+          </p>
+        </div>
+        <div class="question">
+          <h3>Why we named it Horus?</h3>
+          <p>
+            Horus is an Egyptian god who eyes sees it all and it keeps track of
+            activies of all the humans and our website also do the same thing it
+            also keep track of everything that it is in its database.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- .............................About . END....................................... -->
+    <!--...................... footer , in this footer we are talking about contact ..................-->
+    <footer class="footer " id="contact">
+
+      <div class="nav__logo">
+        <img
+          src="{{url_for('static',filename='symbol.png')}}"
+          style="width: 55px"
+        />
+        <span class="nav__logo__item"> HORUS</span>
+      </div>
+      <p>copyright 	&#169; 2022 Horus, Inc.</p>
+      <span><a href="https://www.linkedin.com/in/abhishek-sharma-b4b8a5209/">LinkedIN | </a>  <a href="https://github.com/Ankitsingh2001">Github</a></span>
+    </footer>
+    <!--....................................... footer  end............................................-->
+
+    <!-- javascript  -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function fnclick() {
+        document.getElementById("menu").classList.toggle("change");
+        document.getElementById("nav__items__toggle").classList.toggle("p");
+        document.getElementById("nav__items__toggle").setAttribute = {
+          transition: "all 2s",
+        };
+      }
+      function regFormcall() {
+        document.getElementById("registration__form").classList.add("regScale");
+      }
+      function regScale() {
+        document.getElementById("registration__form").classList.add("regScale");
+      }
+
+    
+    </script>
+
+    <!-- slideshow for how to use section -->
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+    </script>
+  </body>
 </html>
+
+
