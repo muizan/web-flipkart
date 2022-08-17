@@ -1,0 +1,139 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left:0%;
+  transform: translate(-50%, -50%);
+  transform-origin:center;
+  transform: scale(0);
+  bottom: 1rem;
+  padding-top: 38px;
+  width: 100%;
+  transition: all 2s;
+  /* overflow: hidden; */
+}
+.reg__logo{ 
+  display: flex;
+  padding: 12px;
+ justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--alertColor);
+  overflow-x: hidden;
+  width: 100%;
+}
+#Reg_Image{
+  height:60px;
+  width: 60px;
+}
+.reg__logo div{
+  font-family: 'Cinzel Decorative';
+  font-size: 32px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.login-div {
+  width: 70%;
+  height: 100%;
+  padding: 35px;
+  border-radius: 12px;
+  background: #dedede;
+  box-shadow: 1px 1px 47px cornflowerblue, 
+             -1px -1px 47px cornflowerblue;
+
+}
+
+.fields {
+  padding:5px 5px 5px 5px;
+}
+.fields input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: none;
+  margin-right: 0px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #555;
+  width: 100%;
+  font-size: medium;
+  padding: 15px;
+  border-radius: 15px;
+background: #ffffff;
+box-shadow: inset 19px 19px 38px #c7c7c7,
+            inset -19px -19px 38px #ffffff;
+}
+input::placeholder{
+  padding-left: 12px;
+}
+input:-webkit-autofill,
+input:hover, 
+input:focus, 
+input:active  {
+    background-color: transparent;
+}
+.username,
+.password {
+  margin-bottom: 1rem;
+}
+.Submit-button_container{
+  display: flex;
+  justify-content: center;
+   width: 100%;
+}
+.Submit-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 60%;
+  border-radius: 30px;
+  font-size: 20px;
+  height:3rem;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background-image:linear-gradient(#7F7FD5,#86A8E7,#91EAE4) ;
+  text-align: center;
+  transition: 0.5s;
+}
+/* input:not(:placeholder-shown)  [input type:"submit"]{
+   opacity: 1;
+} */
+.Submit-button:hover {
+  background-image:linear-gradient(#1f4037 , #99f2c8);
+  border-radius: 30px;
+}
+.Submit-button:active {
+  background-image:linear-gradient(#1f4037 , #99f2c8);
+}
+.link {
+  padding-top: 20px;
+  text-align: center;
+}
+.link a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 15px;
+}
+.title {
+  text-align: center;
+  font-size: 28px;
+  padding-top: 24px;
+  letter-spacing: 0.5px;
+}
+.sub-title {
+  text-align: center;
+  font-size: 25px;
+  padding-top: 7px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 800px) {
+  .login-div {
+    width: 100%;
+    padding:5px;
+  }
+}
+.regScale{
+  transform: scale(1);
+}
